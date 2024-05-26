@@ -264,7 +264,7 @@ func (c *Clearingway) Uncomfy(s *discordgo.Session, i *discordgo.InteractionCrea
 		if err != nil {
 			fmt.Printf("Error removing uncomfy role: %+v\n", err)
 		}
-		fmt.Printf("Removing uncomfy role: %+v\n", err)
+		fmt.Printf("Removing uncomfy role: %+v\n", r.Name)
 	}
 
 	err = discord.ContinueInteraction(s, i.Interaction, "_ _\n__Uncomfy roles:__\n⮕ Removed!\n")
@@ -337,7 +337,7 @@ func (c *Clearingway) Uncolor(s *discordgo.Session, i *discordgo.InteractionCrea
 		if err != nil {
 			fmt.Printf("Error removing parsing role: %+v\n", err)
 		}
-		fmt.Printf("Removing parsing role: %+v\n", err)
+		fmt.Printf("Removing parsing role: %+v\n", r.Name)
 	}
 
 	err = discord.ContinueInteraction(s, i.Interaction, "_ _\n__Parsing roles:__\n⮕ Removed!\n")
@@ -455,7 +455,7 @@ func (c *Clearingway) RemoveAll(s *discordgo.Session, i *discordgo.InteractionCr
 		if err != nil {
 			fmt.Printf("Error removing role: %+v\n", err)
 		}
-		fmt.Printf("Removing role: %+v\n", err)
+		fmt.Printf("Removing role: %+v\n", r.Name)
 	}
 
 	err = discord.ContinueInteraction(s, i.Interaction, "_ _\n__Clearingway-related roles:__\n⮕ Removed!\n")
