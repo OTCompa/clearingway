@@ -377,6 +377,21 @@ func (c *Clearingway) InteractionCreate(s *discordgo.Session, i *discordgo.Inter
 				c.MenuVerifyProcess(s, i)
 			}
 		}
+	case discordgo.InteractionModalSubmit:
+		customID := i.ModalSubmitData().CustomID
+		command := strings.Split(customID, " ")
+		if ok := len(command) > 1; !ok {
+			fmt.Printf("Invalid custom ID received: \"%v\"\n", customID)
+			return
+		}
+
+		switch MenuType(command[0]) {
+		case MenuVerify:
+			switch CommandType(command[1]) {
+			case CommandClearsModal:
+				c.MenuVerifyProcess(s, i)
+			}
+		}
 	}
 
 }
